@@ -1,0 +1,56 @@
+Questions=("How many alphabets are there in English?",
+           "On which basis mathenatical operations are being operated?",
+           "Which two planets are closest to the Earth?",
+           "What is the most abundant gas in Earth's atmosphere?",
+           "Which Computer langauge was discovered by Guido Van Rossum?",
+           "Who invented Electric Bulb?",
+           "what is the equation of Einestin's energy mass relation?",
+           "Who is the current Prime minister of India?",
+           "Name the athelete who has won the golden medal in jamblin throw in 2023?")
+Options=(("A.21","B.30","C.26","D.23"),
+         ("A.BODMAS Rule","B.Simple Calculations","C.Addition ","D.Subtraction"),
+         ("A.Venus and Mars","B.Neptune and Jupiter","C. Mercury and  Venus","D.Uranus and Neptune"),
+         ("A.Nitrogen ","B.Oxygen","C.Carbon-dioxide","D.Hydrogen"),
+         ("A.C","B. Python","C.PHP","D. C++"),
+         ("A.Issac Newton","B.Thomas Elva Edison","C.Albert Einestin","D.Faraday"),
+         ("A. E=mc2","B. E=mv","C.E=1/2mv2","D,none of these"),
+         ("A.Rajendra Prasad","B. Atal Vihari Bajpai","C.Narendra modi","D. Manmohan Singh"),
+         ("A.Neeraj Chopra","B. Virat Kohli","C.Sania nehwal","D. MS Dhoni"))
+answers=("C","A","A","A","B","B","A","C","A")
+gusses=[]
+score=0
+Question_number=0
+
+for Question in Questions:
+    print("-------------------------------------")
+    print(Question)
+    for option in Options[Question_number]:
+        print(option)
+        
+        
+    guess=input("Enter (A,B,C,D):").upper()
+    gusses.append(guess)
+    if guess ==answers[Question_number]:
+        score+=1
+        print("Correct")
+    else:
+        print("Incorrect!")
+        print(f"{answers[Question_number]} is the correct answer")
+    Question_number+=1
+    
+print("---------------------")
+print("      RESULTS         ")
+print("----------------------")
+
+print("answers:",end=" ")
+for answer in answers:
+    print(answer,end=" ")
+print()
+
+print("Gusses:",end=" ")
+for guess in gusses:
+    print(guess,end=" ")
+print()
+
+score=int(score/ len(Questions)*100)
+print(f" Your score is:{score}%")
