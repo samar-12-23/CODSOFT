@@ -1,0 +1,36 @@
+import tkinter as tk
+from tkinter import  messagebox
+
+
+def addup_work():
+    work=work_entry.get()
+    if work:
+        work_list.insert(tk.END,work)
+        work_entry.delete(0,tk.END)
+    else:
+        messagebox.showwarning("Attention!!","Please enter a Work")
+    
+def  delete_work():
+    choosen_work= work_list.curselection()
+    if choosen_work:
+        work_list.delete(choosen_work)
+    else:
+        messagebox.showwarning("Attention!!","Please select a task to remove.")
+        
+        
+root=tk.Tk()
+root.title("To-do-List")
+
+work_entry= tk.Entry(root,font=("Arial",14))
+work_entry.pack(pady=10)
+
+addup_button= tk.Button(root, text="add on Work", command=addup_work, font=("Arial",12))
+addup_button.pack()
+
+delete_button=tk.Button(root, text="Delete Work",command=delete_work,font=("Arial",12))
+delete_button.pack()
+
+work_list=tk.Listbox(root,font=("Arial",12), selectmode=tk.SINGLE)
+work_list.pack(padx=10, pady=10, fill=tk.BOTH, expand=True)
+
+root.mainloop()
